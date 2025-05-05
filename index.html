@@ -8,6 +8,8 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="./config.js"></script>
 <script src="./index.js"></script>
     <title>ZipTube</title>
 </head>
@@ -40,9 +42,11 @@
       </nav>
 </header>
 <body>
+    <!-- <button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button> -->
     <div class="ratio ratio-16x9">
         <iframe
-          src="https://www.youtube.com/watch?v=EdxBQo3Gz4M"
+          src="./media/SampleVideo_1280x720_10mb.mp4"
           title="YouTube video"
           allowfullscreen
         ></iframe>

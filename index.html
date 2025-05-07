@@ -11,6 +11,8 @@
 <script src="https://apis.google.com/js/api.js"></script>
 <script src="./config.js"></script>
 <script src="./index.js"></script>
+<script src="./fetch.js"></script>
+<link rel="stylesheet" href="./style.css">
     <title>ZipTube</title>
 </head>
 <body>
@@ -24,13 +26,13 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Link</a>
+                <a class="nav-link" href="javascript:void(0)">Gabe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Link</a>
+                <a class="nav-link" href="javascript:void(0)">nateThaCodeGod</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Link</a>
+                <a class="nav-link" href="javascript:void(0)">Isaac</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -42,14 +44,28 @@
       </nav>
 </header>
 <body>
+    <video id="mainVideo" class="main-video" controls autoplay>
+        <source src="./media/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="thumbnails">
+        <video src="./media/SampleVideo_1280x720_1mb.mp4" onclick="changeVideo(this.src)" muted></video>
+        <video src="./media/5538137-hd_1920_1080_25fps.mp4" onclick="changeVideo(this.src)" muted></video>
+        <video src="./media/6981411-hd_1920_1080_25fps.mp4" onclick="changeVideo(this.src)" muted></video>
+        <video src="./media/5752729-uhd_3840_2160_30fps.mp4" onclick="changeVideo(this.src)" muted></video>
+      </div>
     <!-- <button onclick="authenticate().then(loadClient)">authorize and load</button>
 <button onclick="execute()">execute</button> -->
-    <div class="ratio ratio-16x9">
+
+    <!-- <div class="ratio ratio-4x3">
         <iframe
           src="./media/SampleVideo_1280x720_10mb.mp4"
           title="YouTube video"
           allowfullscreen
         ></iframe>
-      </div></body>
+      </div> -->
+
+    </body>
 </body>
 </html>

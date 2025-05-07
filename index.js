@@ -50,8 +50,4 @@
     gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
   });
 
-  function changeVideo(src) {
-    const main = document.getElementById('mainVideo');
-    main.src = src;
-    main.play();
-  }
+  

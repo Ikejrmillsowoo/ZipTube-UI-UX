@@ -9,15 +9,43 @@
     <script src="./fetch.js"></script>
 </head>
 <body class="bg-light">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Gabe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">nateThaCodeGod</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Isaac</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="text" placeholder="Search">
+              <button class="btn btn-primary" type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</header>
 
   <div class="container py-4">
     <!-- Main Video -->
     <div class="row">
       <div class="col-12">
         <video id="mainVideo" class="main-video mb-3" controls autoplay>
-          <source src="video1.mp4" type="video/mp4">
+          <source src="" id="mainSource" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <h5 id="mainTitle" class="text-center"></h5>
       </div>
     </div>
 

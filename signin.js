@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 const API_URL = `http://localhost:8080`;
 const form = document.getElementById('signInForm');
 const successMessage = document.getElementById('successMessage');
@@ -21,29 +22,32 @@ form.addEventListener('submit', function (e) {
     });
 
     if (isValid) {
-        if (isValid) {
-            fetch(`${API_URL}/user`, {
-                method: 'GET',
+        
+            fetch(`${API_URL}/user/login`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(user)
             })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(`HTTP error! Status: ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then(data => {
-                    console.log('Server response:', data);
+                .then(res => res.json().then(data => ({ status: res.status, body: data })))
+                .then(({ status, body}) => {
+                    if (status === 200){
+                    console.log('Server response:', body);
+                    localStorage.setItem('userId', body.userId);
+                    localStorage.setItem('username', body.username);
+                    successMessage.textContent = body.message || "Login successful!";
                     successMessage.classList.remove('d-none');
                     form.reset();
+                    }else {
+                        alert(body.error || "Login failed.");
+                    }
                 })
                 .catch(error => {
                     console.error('API Error:', error);
-                    alert('Error registering user. Check API or server.');
+                    alert('Network or server error.');
                 });
         }
-    }
+    
+});
 });

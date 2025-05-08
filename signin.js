@@ -3,6 +3,7 @@ const API_URL = `http://localhost:8080`;
 const form = document.getElementById('signInForm');
 const successMessage = document.getElementById('successMessage');
 
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     let isValid = true;
@@ -39,6 +40,10 @@ form.addEventListener('submit', function (e) {
                     successMessage.textContent = body.message || "Login successful!";
                     successMessage.classList.remove('d-none');
                     form.reset();
+                        //wait 1.5 secs to redirect
+                    setTimeout(() => {
+                        window.location.href = "loggedInVideos.html"; // or videos.html etc.
+                      }, 1500);
                     }else {
                         alert(body.error || "Login failed.");
                     }

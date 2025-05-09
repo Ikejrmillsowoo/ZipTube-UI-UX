@@ -42,7 +42,7 @@
 
     <!-- Main Video -->
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" id="mainVideoWrapper" data-video-id="">
         <video id="mainVideo" class="main-video mb-3" controls autoplay>
           <source src="" id="mainSource" type="video/mp4">
           Your browser does not support the video tag.
@@ -53,6 +53,31 @@
         <h5 id="mainTitle" class="text-center"></h5>
       </div>
     </div>
+
+     <!-- 🔘 Toggle Button -->
+     <button id="toggleCommentsBtn" class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="collapse"
+     data-bs-target="#commentCollapse" data-video-id="123">
+     Show/Hide Comments
+   </button>
+
+   <!-- 💬 Collapsible Comment Section -->
+   <div class="collapse" id="commentCollapse">
+     <div class="card card-body comment-section">
+       <h4>Comments</h4>
+
+       <!-- <form id="commentForm">
+        <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+      </form> -->
+    
+
+       <ul id="commentList" class="mt-3 list-group"></ul>
+     </div>
+   </div>
+   <form id="commentForm">
+    <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>
+    <button type="submit" class="btn btn-primary">Post Comment</button>
+  </form>
 
     <!-- Thumbnails -->
     <div class="row mb-4" id="thumbnailRow">
@@ -76,5 +101,6 @@
     </div>
   </div>
   <script src="./fetch.js"></script>
+  <script src="./comments.js"></script>
 </body>
 </html>

@@ -12,10 +12,13 @@ const API_URL = "http://localhost:8080";
       return;
     }
 
+    //Uploading video file
+
     const video = {
       videoName: document.getElementById("videoName").value.trim(),
       query: document.getElementById("query").value.trim(),
       url: document.getElementById("url").value.trim(),
+      // url: videoUrl,
       year: document.getElementById("year").value.trim(),
       favorite: document.getElementById("favorite").checked,
       uploaded: true,

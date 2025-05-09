@@ -10,28 +10,33 @@
 </head>
 <body class="bg-light">
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <!--Nav bar starts here-->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <!--Top Right corner logo-->
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./home.html"><img src="ZipTube Logo.png" alt="ZipTube Logo"style="width:65px;" class="Square logo">
+              </a>
+              <!-- May not need this below - Gabe -->
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
-          </button>
+          </button> -->
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Gabe</a>
+                <a class="nav-link" href="javascript:void(0)">Sign Out</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">nateThaCodeGod</a>
+                <a class="nav-link" href="javascript:void(0)">Upload</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Isaac</a>
+                <a class="nav-link" href="javascript:void(0)">Favorites</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="text" placeholder="Search">
-              <button class="btn btn-primary" type="button">Search</button>
-            </form>
+            <!-- Search Bar and button-->
+                  <form class="d-flex">
+                    <input id="searchInput" class="form-control me-2" type="text" placeholder="Search">
+                    <button id="searchButton" class="btn btn-success" type="button">Search</button>
+                  </form>
           </div>
         </div>
       </nav>
@@ -76,5 +81,6 @@
     </div>
   </div>
   <script src="./fetch.js"></script>
+  <script src="./search.js"></script>
 </body>
 </html>

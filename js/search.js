@@ -1,4 +1,4 @@
-import { showDataDetail } from "./fetch";
+ import { showDataDetail } from "./fetch.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 const API_URL = `http://localhost:8080`;

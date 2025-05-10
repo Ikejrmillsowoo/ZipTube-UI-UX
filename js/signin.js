@@ -21,6 +21,7 @@ form.addEventListener('submit', function (e) {
             user[id] = input.value.trim();
         }
     });
+   
 
     if (isValid) {
         
@@ -55,4 +56,5 @@ form.addEventListener('submit', function (e) {
         }
     
 });
+
 });

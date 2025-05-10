@@ -1,3 +1,5 @@
+import { showDataDetail } from "./fetch";
+
 document.addEventListener('DOMContentLoaded', function () {
 const API_URL = `http://localhost:8080`;
 
@@ -14,11 +16,15 @@ document.getElementById('searchButton').addEventListener('click', function () {
             .then(response => response.json())
             .then(data => {
               console.log('Search results:', data);
+              showDataDetail(data)
               // Display results on the page (you can customize this)
             })
-            .catch(error => console.error('Error fetching search results:', error));
-            console.error("CORS error?", error)
-            document.getElementById('posts').innerHTML = 'Error Loading Items Data';
+            .catch(error => {
+              console.error('Error fetching search results:', error)
+              console.error("CORS error?", error)
+              document.getElementById('posts').innerHTML = 'Error Loading Items Data';  
+            });
+            
         } else {
           alert('Please enter a search term.');
         }

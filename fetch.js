@@ -34,7 +34,7 @@ const wrapper = document.getElementById("mainVideoWrapper")
 wrapper.dataset.videoId = currentVideoId;
 
 
-function showDataDetail(data) {
+export function showDataDetail(data) {
   // the data parameter will be a JS array of JS objects
   // this uses a combination of "HTML building" DOM methods (the document createElements) and
   // simple string interpolation (see the 'a' tag on title)

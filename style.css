@@ -45,4 +45,14 @@ iframe {
     width: 100%;
     max-height: 450px;
   }
+
+  .logo {
+    width: auto;
+    height: auto;
+}
+.buttons-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
   

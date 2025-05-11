@@ -28,7 +28,7 @@
               </li>
               <!-- Upload -->
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Upload</a>
+                <a class="nav-link" href=./addVideo.html>Upload</a>
               </li>
               <!-- Favorites -->
               <li class="nav-item">
@@ -46,7 +46,7 @@
 </header>
 
   <div class="container py-4">
-    <a href="./addVideo.html"><button class="btn btn-primary" type="button">Add a video</button></a>
+    <!-- <a href="./addVideo.html"><button class="btn btn-primary" type="button">Add a video</button></a> -->
 
     <!-- Main Video -->
     <div class="row">
@@ -55,7 +55,9 @@
           <source src="" id="mainSource" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <button id="likeBtn" class="btn btn-outline-primary">
+
+        <!-- Like Button -->
+        <button id="likeBtn" class="btn btn-primary">
             <i class="bi bi-hand-thumbs-up" id="likeIcon"></i> Like
           </button>
         <h5 id="mainTitle" class="text-center"></h5>
@@ -84,7 +86,7 @@
    </div>
    <form id="commentForm">
     <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>
-    <button type="submit" class="btn btn-primary">Post Comment</button>
+    <button type="submit" class="btn btn-success">Post Comment</button>
   </form>
 
     <!-- Thumbnails -->

@@ -24,14 +24,11 @@ function fetchData() {
     });
 }
 
-function showLocationName(data) {
-  const heading = document.getElementById('heading')
-
-  heading.innerHTML = data.name;
-}
 
 const wrapper = document.getElementById("mainVideoWrapper")
 wrapper.dataset.videoId = currentVideoId;
+
+
 
 
 export function showDataDetail(data) {

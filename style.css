@@ -55,4 +55,9 @@ iframe {
     gap: 40px;
     justify-content: center;
 }
+
+.btn-color {
+  background-color: #1a3d44;
+  color: white;
+}
   

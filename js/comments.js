@@ -29,6 +29,7 @@ function showComments(data) {
     let text = document.createElement('p');
 
     username.innerHTML = `${comment.username}`;
+    
     text.innerHTML = `${comment.text}`;
 
     li.appendChild(username);

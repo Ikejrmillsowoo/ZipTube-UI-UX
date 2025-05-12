@@ -1,27 +1,29 @@
-const COMMENT_API = "http://localhost:8080/comments";
+const COMMENT_API = "http://localhost:8080/comments/all";
 const videoId = document.getElementById("mainVideoWrapper").dataset.videoId;
+
+document.addEventListener("DOMContentLoaded", function () {
 
 function fetchComments() {
   fetch(`${COMMENT_API}`)
   .then(res => {
     return res.json();
   })
-  .then(comment => {
-    console.log(`comment ${comment}`);
-    showComments(comment);
+  .then(data => {
+    console.log(`comment ${data}`);
+    showComments(data);
   })
   .catch(error => {
     console.log(`Error fetching: ${error}`);
     console.error("CORS err", error);
-    document.getElementById('posts').innerHTML = 'error loading comments';
+    //document.getElementById('posts') = 'error loading comments';
   })
 }
 
-function showComments(comments) {
+function showComments(data) {
   const ul = document.getElementById('commentList');
   const list = document.createDocumentFragment();
 
-  comments.map(function (comment) {
+  data.map(function (comment) {
     let li = document.createElement('li');
     let username = document.createElement('p');
     let text = document.createElement('p');
@@ -37,7 +39,7 @@ function showComments(comments) {
 }
 
 fetchComments();
-
+})
 // document.addEventListener("DOMContentLoaded", () => {
 //   const commentForm = document.getElementById("commentForm");
 //   const commentList = document.getElementById("commentList");

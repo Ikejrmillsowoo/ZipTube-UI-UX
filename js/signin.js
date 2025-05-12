@@ -44,7 +44,7 @@ form.addEventListener('submit', function (e) {
                         //wait 1.5 secs to redirect
                     setTimeout(() => {
                         window.location.href = "loggedInVideos.html"; // or videos.html etc.
-                      }, 1500);
+                      }, 1000);
                     }else {
                         alert(body.error || "Login failed.");
                     }

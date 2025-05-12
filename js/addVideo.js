@@ -7,6 +7,7 @@ const API_URL = "http://localhost:8080";
     e.preventDefault();
 
     const username = localStorage.getItem("username");
+    console.log(username)
     if (!username) {
       alert("User not logged in.");
       return;
@@ -28,7 +29,8 @@ const API_URL = "http://localhost:8080";
     fetch(`${API_URL}/video`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-Username": username
       },
       body: JSON.stringify(video)
     })

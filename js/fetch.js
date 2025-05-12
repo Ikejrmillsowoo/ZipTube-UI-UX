@@ -67,7 +67,11 @@ export function showDataDetail(data) {
 
 
 
+<<<<<<< HEAD
     console.log({ userId, username, currentVideoId })
+=======
+    console.log({ userId, username, currentVideoId})
+>>>>>>> 9b111d3a0e4971fbfafc9faae47af3d15f6a4b07
 
     mainSource.src = video.url;
     mainVideo.load();

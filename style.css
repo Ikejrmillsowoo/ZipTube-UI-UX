@@ -81,3 +81,13 @@ iframe {
   font-size: 50px;
 }
 
+#commentList {
+  list-style: none;
+  font-size: 1.4em;
+  text-transform: capitalize;
+}
+
+li {
+  font-size: 1.1em;
+}
+

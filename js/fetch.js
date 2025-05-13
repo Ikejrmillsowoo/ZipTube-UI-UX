@@ -2,7 +2,7 @@ const API_URL = `http://localhost:8080`;
 let videos = []; // Store all fetched videos
 let currentVideoIndex = 0;
 export let currentVideoId = 0
-console.log(currentVideoId)
+
 
 
 function fetchData() {

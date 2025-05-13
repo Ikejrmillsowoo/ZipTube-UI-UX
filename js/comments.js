@@ -1,7 +1,7 @@
 import { currentVideoId } from "./fetch.js";
 const COMMENT_API = "http://localhost:8080/comments";
-
 document.addEventListener("DOMContentLoaded", function () {
+  
 function fetchComments() {
   fetch(`${COMMENT_API}`, {
     method: "GET"

@@ -98,6 +98,7 @@ export function showDataDetail(data) {
     likeBtn.onclick = () => {
       let liked = likeBtn.classList.contains('btn-primary');
       const newState = !liked;
+      
 
       if (newState) {
         likeBtn.classList.remove('btn-outline-primary');

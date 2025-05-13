@@ -32,8 +32,6 @@ export function showDataDetail(data) {
   // this uses a combination of "HTML building" DOM methods (the document createElements) and
   // simple string interpolation (see the 'a' tag on title)
   // both are valid ways of building the html.
-  // const ul = document.getElementById('location');
-  // const detail = document.createDocumentFragment();
 
   const thumbnailRow = document.getElementById('thumbnailRow');
 
@@ -47,10 +45,14 @@ export function showDataDetail(data) {
 
     //create a card div
     const col = document.createElement('div')
+  
     col.className = 'col-6 col-sm-4 col-md-3 mb-3'
     col.innerHTML = `<video src="${video.url}" class="img-fluid video-thumb" muted onclick="changeVideo(${index})"></video>
+    
+    
 `; //can change this it optional
     thumbnailRow.appendChild(col);
+    
   });
   function setMainVideo(video) {
     const mainVideo = document.getElementById('mainVideo');

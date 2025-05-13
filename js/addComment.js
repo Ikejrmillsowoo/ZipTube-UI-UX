@@ -1,16 +1,16 @@
+import { currentVideoId } from "./fetch.js";
 const COMMENTS_API = "http://localhost:8080/comments/add";
-const commentForm = document.getElementById("commentForm");
 
 document.addEventListener("DOMContentLoaded", function () {
-
+const commentForm = document.getElementById("commentForm");
 commentForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const username = localStorage.getItem("username");
     const userId = localStorage.getItem("userId");
-    const wrapper = document.getElementById("mainVideoWrapper");
-    const currentVideoId = wrapper.dataset.videoId;
+    let wrapper = document.getElementById("mainVideoWrapper");
     //const currentVideoId = document.getElementById("mainVideoWrapper").dataset.videoId;
+    //const currentVideoId = localStorage.getItem("currentVideoId");
     const text = document.getElementById("commentText").value.trim();
 
     console.log(username, userId, text, currentVideoId);

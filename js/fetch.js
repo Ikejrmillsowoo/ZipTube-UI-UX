@@ -16,6 +16,7 @@ function fetchData() {
       showDataDetail(videos);
 
       console.log(data)
+      
     })
     .catch(error => {
       console.log(`Error Fetching data : ${error}`);
@@ -61,6 +62,8 @@ export function showDataDetail(data) {
     const mainVideo = document.getElementById('mainVideo');
     const mainSource = document.getElementById('mainSource');
     const mainTitle = document.getElementById('mainTitle');
+    const mainTags = document.getElementById('mainTags')
+
     const likeBtn = document.getElementById('likeBtn');
     const userId = localStorage.getItem('userId');
     const username = localStorage.getItem('username');
@@ -73,6 +76,13 @@ export function showDataDetail(data) {
     mainVideo.load();
     mainVideo.play();
     mainTitle.textContent = video.videoName || "Untitled";
+    mainTags.textContent = `Tags: ${
+      video.query
+        .trim()
+        .split(/\s+/) // handles multiple spaces
+        .map(tag => `#${tag}`)
+        .join(" ")
+    }`;
 
     if (video.favorite) {
       likeBtn.classList.remove('btn-outline-primary');
@@ -88,6 +98,7 @@ export function showDataDetail(data) {
     likeBtn.onclick = () => {
       let liked = likeBtn.classList.contains('btn-primary');
       const newState = !liked;
+      
 
       if (newState) {
         likeBtn.classList.remove('btn-outline-primary');

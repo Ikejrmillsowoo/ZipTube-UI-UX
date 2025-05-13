@@ -4,7 +4,7 @@ let currentVideoIndex = 0;
 
 
 
-function fetchData() {
+function fetchVideoData() {
     fetch(`${API_URL}/video`)
         .then(res => {
             //console.log("res is ", Object.prototype.toString.call(res));
@@ -12,7 +12,7 @@ function fetchData() {
         })
         .then(data => {
           videos = data;
-          showDataDetail(videos);
+          showVideoDetail(videos);
               
             console.log(data)
         })
@@ -23,14 +23,50 @@ function fetchData() {
         });
 }
 
-function showLocationName(data){
-    const heading = document.getElementById('heading')
+document.addEventListener("DOMContentLoaded", () => {
 
-    heading.innerHTML = data.name;
-}
+const searchBtn = document.getElementById('searchButton');
+const searchInput = document.getElementById('searchInput');
+
+  if (!searchBtn || !searchInput) {
+    console.warn("Search bar not found on this page. Skipping search script.");
+    return;
+  }
+
+searchBtn.addEventListener('click', function () {
+  const query = searchInput.value;
+  console.log("clicked")
+  if (query) {
+    // Example: Log the query or send it to an API
+    console.log('Searching for:', query);
+
+    // Example: Fetch results from an API
+    fetch(`${API_URL}/video/search?query=${encodeURIComponent(query)}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Search results:', data);
+        showVideoDetail(data)
+        // Display results on the page (you can customize this)
+        searchInput.value = '';
+      })
+      .catch(error => {
+        console.error('Error fetching search results:', error)
+        console.error("CORS error?", error)
+        document.getElementById('posts').innerHTML = 'Error Loading Items Data';
+      });
+
+  } else {
+    alert('Please enter a search term.');
+  }
+});
 
 
-function showDataDetail(data) {
+})
+
+
+
+
+export function showVideoDetail(data) {
     // the data parameter will be a JS array of JS objects
     // this uses a combination of "HTML building" DOM methods (the document createElements) and
     // simple string interpolation (see the 'a' tag on title)
@@ -56,57 +92,26 @@ function showDataDetail(data) {
     thumbnailRow.appendChild(col);
   });
   function setMainVideo(video) {
-    // currentVideoId = video.videoId;
   const mainVideo = document.getElementById('mainVideo');
   const mainSource = document.getElementById('mainSource');
+  const mainTags = document.getElementById('mainTags')
   const mainTitle = document.getElementById('mainTitle');
-//   const likeBtn = document.getElementById('likeBtn');
-//   const userId = localStorage.getItem('userId');
-//   const username = localStorage.getItem('username');
-//   console.log({userId, username})
+
 
   mainSource.src = video.url;
   mainVideo.load();
   mainVideo.play();
   mainTitle.textContent = video.videoName || "Untitled";
+  // mainTags.textContent = `Tags: ${video.query}`;
+  mainTags.textContent = `Tags: ${
+    video.query
+      .trim()
+      .split(/\s+/) // handles multiple spaces
+      .map(tag => `#${tag}`)
+      .join(" ")
+  }`;
 
-//   if (video.favorite) {
-//     likeBtn.classList.remove('btn-outline-primary');
-//     likeBtn.classList.add('btn-primary');
-//     likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i> Liked';
-//   } else {
-//     likeBtn.classList.remove('btn-primary');
-//     likeBtn.classList.add('btn-outline-primary');
-//     likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i> Like';
-//   }
 
-  // Rebind like button
-//   likeBtn.onclick = () => {
-//     let liked = likeBtn.classList.contains('btn-primary');
-//     const newState = !liked;
-
-//     if (newState) {
-//       likeBtn.classList.remove('btn-outline-primary');
-//       likeBtn.classList.add('btn-primary');
-//       likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i> Liked';
-//     } else {
-//       likeBtn.classList.remove('btn-primary');
-//       likeBtn.classList.add('btn-outline-primary');
-//       likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i> Like';
-//     }
-
-//     fetch(`${API_URL}/video/${currentVideoId}/toggle-favorite`, {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({userId})
-//     })
-//     .then(res => res.json())
-//     .then(data => console.log('Favorite updated:', data))
-//     .catch(err => {
-//       console.error('Failed to update like:', err);
-//       alert("Error updating like status.");
-//     });
-//   };
    
   }
     
@@ -120,45 +125,6 @@ window.changeVideo = changeVideo;
 
 }
 //calling the fetch method
-fetchData();
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const likeBtn = document.getElementById('likeBtn');
-//   const videoId = currentVideoId; // replace with dynamic video ID
-//   const userId = localStorage.getItem('userId'); // assumes user is logged in
-//   let liked = false;
-//   likeBtn.addEventListener('click', function () {
-//     liked = !liked;
-
-//     // UI Update
-//     if (liked) {
-//       likeBtn.classList.remove('btn-outline-primary');
-//       likeBtn.classList.add('btn-primary');
-//       likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i> Liked';
-//     } else {
-//       likeBtn.classList.remove('btn-primary');
-//       likeBtn.classList.add('btn-outline-primary');
-//       likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i> Like';
-//     }
-
-//     // 🔥 Fetch call to toggle favorite/like
-//     fetch(`${API_URL}/video/${videoId}/toggle-favorite`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(userId) // assuming your backend just expects userId
-//     })
-//     .then(res => res.json())
-//     .then(data => {
-//       console.log('Server response:', data);
-//     })
-//     .catch(error => {
-//       console.error('Like update failed:', error);
-//       alert("Couldn't update like status.");
-//     });
-//   });
-// });
+fetchVideoData();
 
 

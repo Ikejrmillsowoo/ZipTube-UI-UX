@@ -66,7 +66,7 @@
     </div>
 
      <!-- 🔘 Toggle Button -->
-     <button id="toggleCommentsBtn" class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="collapse"
+     <button id="toggleCommentsBtn" class="btn btn-outline-secondary mb-3 toggle" type="button" data-bs-toggle="collapse"
      data-bs-target="#commentCollapse" data-video-id="">
      Show/Hide Comments
    </button>
@@ -74,7 +74,7 @@
    <!-- 💬 Collapsible Comment Section -->
    <div class="collapse" id="commentCollapse">
      <div class="card card-body comment-section">
-       <h4>Comments</h4>
+       <h4 id="commentsTitle">Comments</h4>
 
        <!-- <form id="commentForm">
         <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>

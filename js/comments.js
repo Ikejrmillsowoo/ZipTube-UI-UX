@@ -26,8 +26,13 @@ function showComments(data) {
     let username = document.createElement('p');
     let text = document.createElement('p');
     
-    username.innerHTML = `${comment.username}`;
+    username.innerHTML = `@${comment.username}`;
+    username.style.fontSize = "1.1rem";
+    username.style.color = "whiteSmoke";
+    
     text.innerHTML = `${comment.text}`;
+    text.style.fontSize = "1.3rem";
+    text.style.color = "white";
 
     li.appendChild(username);
     li.appendChild(text);

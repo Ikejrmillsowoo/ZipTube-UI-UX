@@ -76,6 +76,18 @@ iframe {
   color: white;
   opacity: 0.65;
 }
+.toggle {
+  background-color: #6C757D;
+  color: white;
+}
+.toggle:hover {
+  opacity: .45;
+}
+
+.card {
+  background-color: #3b434e;
+  border: whitesmoke 2px;
+}
 
 #mainTitle {
   font-size: 50px;
@@ -83,11 +95,16 @@ iframe {
 
 #commentList {
   list-style: none;
-  font-size: 1.4em;
+  /* font-size: 1.4em;
   text-transform: capitalize;
+  color: aliceblue; */
+}
+
+#commentsTitle {
+  color: whitesmoke;
 }
 
 li {
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 

@@ -1,9 +1,7 @@
-import { currentVideoId } from "./fetch.js";
 const COMMENT_API = "http://localhost:8080/comments";
 
-document.addEventListener("DOMContentLoaded", function () {
-function fetchComments() {
-  fetch(`${COMMENT_API}`, {
+export function fetchComments(videoId) {
+  fetch(`${COMMENT_API}/video/${videoId}`, {
     method: "GET"
   })
   .then(res => {
@@ -28,18 +26,21 @@ function showComments(data) {
     let username = document.createElement('p');
     let text = document.createElement('p');
     
-    if (comment.videoId === currentVideoId) {  
-      username.innerHTML = `${comment.username}`;
-      text.innerHTML = `${comment.text}`;
+    username.innerHTML = `${comment.username}`;
+    text.innerHTML = `${comment.text}`;
 
-      li.appendChild(username);
-      li.appendChild(text);
-    }
+    li.appendChild(username);
+    li.appendChild(text);
 
     list.appendChild(li);
   })
   ul.appendChild(list);
 }
 
+export function clearComments(videoId) {
+  const ul = document.getElementById('commentList');
+  ul.innerHTML = "";
+}
+
 fetchComments();
-})
+

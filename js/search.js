@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
           console.log('Search results:', data);
           showDataDetail(data)
+
           // Display results on the page (you can customize this)
+          searchInput.value = '';
         })
         .catch(error => {
           console.error('Error fetching search results:', error)

@@ -38,7 +38,7 @@
             <!-- Search Bar and button-->
                   <form class="d-flex">
                     <input id="searchInput" class="form-control me-2" type="text" placeholder="Search">
-                    <button id="searchButton" class="btn btn-color" type="button">Search</button>
+                    <button id="searchButton" class="btn btn-color" type="submit">Search</button>
                   </form>
           </div>
         </div>
@@ -66,15 +66,15 @@
     </div>
 
      <!-- 🔘 Toggle Button -->
-     <button id="toggleCommentsBtn" class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="collapse"
-     data-bs-target="#commentCollapse" data-video-id="123">
+     <button id="toggleCommentsBtn" class="btn btn-outline-secondary mb-3 toggle" type="button" data-bs-toggle="collapse"
+     data-bs-target="#commentCollapse" data-video-id="">
      Show/Hide Comments
    </button>
 
    <!-- 💬 Collapsible Comment Section -->
    <div class="collapse" id="commentCollapse">
-     <div class="card card-body comment-section">
-       <h4>Comments</h4>
+     <div class="card card-body comment-section cardComment">
+       <h4 id="commentsTitle">Comments</h4>
 
        <!-- <form id="commentForm">
         <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>
@@ -102,12 +102,12 @@
         <ul class="list-group mb-3" id="commentList">
           <!-- Comments will appear here -->
         </ul>
-        <form id="commentForm">
+        <!-- <form id="commentForm">
           <div class="input-group">
             <input type="text" class="form-control" id="commentInput" placeholder="Add a comment...">
             <button class="btn btn-primary" type="submit">Post</button>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
   </div>

@@ -51,10 +51,18 @@ iframe {
   height: auto;
 }
 
+.nav-link {
+  font-size: 1.3em;
+}
+
 .buttons-container {
   display: flex;
   gap: 40px;
   justify-content: center;
+}
+
+.btn {
+  font-size: 1.4em;
 }
 
 .btn-color {
@@ -68,7 +76,35 @@ iframe {
   color: white;
   opacity: 0.65;
 }
+.toggle {
+  background-color: #6C757D;
+  color: white;
+}
+.toggle:hover {
+  opacity: .45;
+}
+
+.cardComment {
+  background-color: #3b434e;
+  border: whitesmoke 2px;
+}
 
 #mainTitle {
   font-size: 50px;
 }
+
+#commentList {
+  list-style: none;
+  /* font-size: 1.4em;
+  text-transform: capitalize;
+  color: aliceblue; */
+}
+
+#commentsTitle {
+  color: whitesmoke;
+}
+
+li {
+  font-size: 1.1rem;
+}
+

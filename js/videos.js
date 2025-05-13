@@ -33,7 +33,12 @@ const searchInput = document.getElementById('searchInput');
     return;
   }
 
-searchBtn.addEventListener('click', function () {
+
+ searchBtn.addEventListener('click', function () {
+  document.querySelector("form.d-flex").addEventListener("submit", (event) => {
+    event.preventDefault(); // stop page reload
+    searchBtn.click(); // reuse button logic
+  });
   const query = searchInput.value;
   console.log("clicked")
   if (query) {

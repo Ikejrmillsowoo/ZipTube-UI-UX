@@ -1,8 +1,10 @@
+import { clearComments } from "./comments.js";
+import { fetchComments } from "./comments.js";
 const API_URL = `http://localhost:8080`;
 let videos = []; // Store all fetched videos
 let currentVideoIndex = 0;
 export let currentVideoId = 0
-console.log(currentVideoId)
+
 
 
 function fetchData() {
@@ -16,7 +18,6 @@ function fetchData() {
       showDataDetail(videos);
 
       console.log(data)
-      
     })
     .catch(error => {
       console.log(`Error Fetching data : ${error}`);
@@ -26,7 +27,7 @@ function fetchData() {
 }
 
 
-const wrapper = document.getElementById("mainVideoWrapper")
+export const wrapper = document.getElementById("mainVideoWrapper")
 wrapper.dataset.videoId = currentVideoId;
 
 
@@ -58,12 +59,11 @@ export function showDataDetail(data) {
     thumbnailRow.appendChild(col);
   });
   function setMainVideo(video) {
+    clearComments();
     currentVideoId = video.videoId;
     const mainVideo = document.getElementById('mainVideo');
     const mainSource = document.getElementById('mainSource');
     const mainTitle = document.getElementById('mainTitle');
-    const mainTags = document.getElementById('mainTags')
-
     const likeBtn = document.getElementById('likeBtn');
     const userId = localStorage.getItem('userId');
     const username = localStorage.getItem('username');
@@ -76,13 +76,6 @@ export function showDataDetail(data) {
     mainVideo.load();
     mainVideo.play();
     mainTitle.textContent = video.videoName || "Untitled";
-    mainTags.textContent = `Tags: ${
-      video.query
-        .trim()
-        .split(/\s+/) // handles multiple spaces
-        .map(tag => `#${tag}`)
-        .join(" ")
-    }`;
 
     if (video.favorite) {
       likeBtn.classList.remove('btn-outline-primary');
@@ -98,7 +91,6 @@ export function showDataDetail(data) {
     likeBtn.onclick = () => {
       let liked = likeBtn.classList.contains('btn-primary');
       const newState = !liked;
-      
 
       if (newState) {
         likeBtn.classList.remove('btn-outline-primary');
@@ -122,13 +114,14 @@ export function showDataDetail(data) {
           alert("Error updating like status.");
         });
     };
-
+    fetchComments(currentVideoId);
+    
   }
 
   function changeVideo(index) {
     currentVideoIndex = index;
-    setMainVideo(videos[index])
-
+    setMainVideo(videos[index]);
+    //loadComments(currentVideoId);
   }
 
   window.changeVideo = changeVideo;

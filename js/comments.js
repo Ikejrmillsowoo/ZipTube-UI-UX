@@ -2,11 +2,10 @@ import { currentVideoId } from "./fetch.js";
 const COMMENT_API = "http://localhost:8080/comments";
 
 document.addEventListener("DOMContentLoaded", function () {
-
 function fetchComments() {
-  let videoId = currentVideoId;
-  let wrapper = document.getElementById("mainVideoWrapper");
-  fetch(`${COMMENT_API}/video/${videoId}`)
+  fetch(`${COMMENT_API}`, {
+    method: "GET"
+  })
   .then(res => {
     return res.json();
   })
@@ -17,7 +16,6 @@ function fetchComments() {
   .catch(error => {
     console.log(`Error fetching: ${error}`);
     console.error("CORS err", error);
-    //document.getElementById('posts') = 'error loading comments';
   })
 }
 
@@ -29,13 +27,15 @@ function showComments(data) {
     let li = document.createElement('li');
     let username = document.createElement('p');
     let text = document.createElement('p');
-
-    username.innerHTML = `${comment.username}`;
     
-    text.innerHTML = `${comment.text}`;
+    if (comment.videoId === currentVideoId) {  
+      username.innerHTML = `${comment.username}`;
+      text.innerHTML = `${comment.text}`;
 
-    li.appendChild(username);
-    li.appendChild(text);
+      li.appendChild(username);
+      li.appendChild(text);
+    }
+
     list.appendChild(li);
   })
   ul.appendChild(list);

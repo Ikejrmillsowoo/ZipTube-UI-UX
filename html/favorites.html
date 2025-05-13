@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body class="bg-dark">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/html/home.html"><img src="/ZipTube Logo.png" alt="ZipTube Logo" style="width:65px;"
+            class="Square logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a id="goback" class="nav-link" href="#" onclick="history.back()">Go Back</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a id="logoutBtn" class="nav-link" href="/html/signin.html">Sign In</a>
+            </li> -->
+          </ul>
+
+          <!-- Search Button -->
+          <!-- <form class="d-flex">
+            <input id="searchInput" class="form-control me-2" type="text" placeholder="Search">
+            <button id="searchButton" class="btn btn-color" type="button">Search</button>
+          </form> -->
+      
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container py-4">
+    <!-- Main Video -->
+    <div class="row">
+      <div class="col-12">
+        <video id="mainVideo" class="main-video mb-3" controls autoplay>
+          <source src="" id="mainSource" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2 id="mainTitle" class="text-center text-light"></h2>
+        <h5 id="mainTags" class="text-left text-light"></h5>
+      </div>
+    </div>
+
+    <!-- 🔘 Toggle Button -->
+    <!-- <button class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="collapse"
+      data-bs-target="#commentCollapse">
+      Show/Hide Comments
+    </button> -->
+
+    <!-- 💬 Collapsible Comment Section -->
+    <div class="collapse" id="commentCollapse">
+      <div class="card card-body comment-section">
+        <h4>Comments</h4>
+
+        <!-- <form id="commentForm">
+          <input type="text" id="commentText" placeholder="Write a comment..." class="form-control mb-2" required>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form> -->
+
+        <ul id="commentList" class="mt-3 list-group"></ul>
+      </div>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="row mb-4" id="thumbnailRow">
+      <!-- Thumbnails will be injected here -->
+    </div>
+
+    <!-- Comment Section -->
+    <div class="row">
+      <div class="col-12">
+      </div>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/getFavorites.js"></script>
+
+    
+</body>
+
+</html>

@@ -37,8 +37,10 @@ function showComments(data) {
     }
 
     list.appendChild(li);
+  
   })
   ul.appendChild(list);
+  
 }
 
 fetchComments();

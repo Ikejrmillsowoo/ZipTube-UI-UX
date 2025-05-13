@@ -51,10 +51,18 @@ iframe {
   height: auto;
 }
 
+.nav-link {
+  font-size: 1.3em;
+}
+
 .buttons-container {
   display: flex;
   gap: 40px;
   justify-content: center;
+}
+
+.btn {
+  font-size: 1.4em;
 }
 
 .btn-color {
@@ -72,3 +80,4 @@ iframe {
 #mainTitle {
   font-size: 50px;
 }
+

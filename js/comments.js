@@ -29,6 +29,7 @@ function showComments(data) {
     username.innerHTML = `@${comment.username}`;
     username.style.fontSize = "1.1rem";
     username.style.color = "whiteSmoke";
+    username.style.opacity = ".5";
     
     text.innerHTML = `${comment.text}`;
     text.style.fontSize = "1.3rem";

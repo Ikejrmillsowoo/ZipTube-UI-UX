@@ -102,6 +102,7 @@ iframe {
 
 #commentsTitle {
   color: whitesmoke;
+  text-decoration: underline;
 }
 
 li {

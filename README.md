@@ -1,6 +1,6 @@
 # ZipTube
 ## Members
-Isaac Mills-Owoo - https://www.linkedin.com/in/isaac-mills-owoo/ 
+Isaac Mills-Owoo - https://www.linkedin.com/in/isaac-mills-owoo/ <br>
 Gabriel Cruz - https://www.linkedin.com/in/gabriel-cruz67/
 
 ##ZipTube – Share, Discover & Connect Through Video

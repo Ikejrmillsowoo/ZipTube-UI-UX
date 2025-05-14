@@ -95,9 +95,7 @@ iframe {
 
 #commentList {
   list-style: none;
-  /* font-size: 1.4em;
-  text-transform: capitalize;
-  color: aliceblue; */
+
 }
 
 #commentsTitle {
@@ -108,4 +106,12 @@ iframe {
 li {
   font-size: 1.1rem;
 }
+
+#qrLabel {
+  color: #1a3d44;
+  text-decoration: solid;
+  font-size: 4rem;
+}
+
+
 

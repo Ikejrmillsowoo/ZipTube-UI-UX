@@ -37,33 +37,46 @@
 //   }
 // });
 
-async function getVideoSuggestions() {
-  const prompt = document.getElementById("keywordInput").value;
+// async function getVideoSuggestions() {
+//   const prompt = document.getElementById("keywordInput").value;
 
-  const response = await fetch("/api/chat/suggestions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt })
-  });
+//   const response = await fetch("/api/chat/suggestions", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ prompt })
+//   });
 
-  const urls = await response.json();
-  const list = document.getElementById("videoResults");
-  list.innerHTML = "";
-  urls.forEach(url => {
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-    list.appendChild(li);
-  });
-}
+//   const urls = await response.json();
+//   const list = document.getElementById("videoResults");
+//   list.innerHTML = "";
+//   urls.forEach(url => {
+//     const li = document.createElement("li");
+//     li.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+//     list.appendChild(li);
+//   });
+// }
 
 const API_URL = `http://localhost:8080`;
 
+window.closeAIInsights = function () {
+  document.getElementById("aiInsightsPanel").style.display = "none";
+};
+
+function showAIInsightsPanel() {
+  document.getElementById("aiInsightsPanel").style.display = "block";
+}
+
+
 
 export async function submitAISearch(prompt) {
-  // const prompt = document.getElementById("aiPromptInput").value;
+  
+  //const prompt = document.getElementById("aiPromptInput").value;
   const resultsList = document.getElementById("resultsList");
-  console.log(prompt)
-  resultsList.innerHTML = "<li>Loading educational suggestions...</li>";
+  const panel = document.getElementById("aiInsightsPanel");
+  // panel.style.display = "block";
+  // resultsList.innerHTML = "<li class='list-group-item bg-dark text-light'>Loading educational suggestions...</li>";
+  // showAIInsightsPanel()
+   resultsList.innerHTML = "<li>Loading educational suggestions...</li>";
 
   try {
     const response = await fetch(`${API_URL}/api/chat/suggestions`, {
@@ -82,7 +95,12 @@ export async function submitAISearch(prompt) {
 
     bullets.forEach(line => {
       const li = document.createElement("li");
-
+      li.className = "list-group-item";
+      li.style.backgroundColor = "#212429"
+      li.style.color = "whiteSmoke"
+      li.style.fontSize = "2rem"
+      li.style.textDecoration = "none"
+      li.style.border = "none";
       // Match: "Some fact – [Link Text](https://example.com)"
       const match = line.match(/^(.*?)\s*[-–]\s*\[(.*?)\]\((.*?)\)/);
       if (match) {
@@ -91,7 +109,7 @@ export async function submitAISearch(prompt) {
         const url = match[3].trim();
 
         li.innerHTML = `${factText} – <a href="${url}" target="_blank">${linkText}</a>`;
-        li.style.color = "white"
+
       } else {
         // Fallback if format doesn't match
         li.textContent = line;

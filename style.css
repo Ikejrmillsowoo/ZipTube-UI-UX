@@ -107,9 +107,14 @@ li {
   font-size: 1.1rem;
 }
 
-.commentsText {
+.chatText {
   color: whitesmoke;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+}
+
+h2 .chatText {
+  color: whitesmoke;
+
 }
 
 #qrLabel {

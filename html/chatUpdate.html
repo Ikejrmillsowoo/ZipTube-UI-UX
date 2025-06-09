@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatGPT Integration</title>
+</head>
+<body>
+  <h2>Ask ChatGPT:</h2>
+  <textarea id="userInput" rows="4" cols="50" placeholder="Type your question..."></textarea><br>
+  <button id="sendBtn">Send</button>
+  <div id="chatOutput"></div>
+
+  <input type="text" id="keywordInput" placeholder="Ask for videos..." />
+<button onclick="getVideoSuggestions()">Find Videos</button>
+
+<ul id="videoResults"></ul>
+
+
+  <script src="/js/chat.js" type="module"></script>
+</body>
+</html>

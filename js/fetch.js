@@ -8,7 +8,7 @@ export let currentVideoId = 0
 
 
 function fetchData() {
-  fetch(`${API_URL}/video`)
+  fetch(`${API_URL}/videos`)
     .then(res => {
       //console.log("res is ", Object.prototype.toString.call(res));
       return res.json();

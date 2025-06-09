@@ -112,6 +112,11 @@
             <button class="btn btn-primary" type="submit">Post</button>
           </div>
         </form> -->
+        <h2>Ask for a Video Topic</h2>
+  <input id="aiPromptInput" type="text" placeholder="e.g. Learn Spring Boot with PostgreSQL" size="40">
+  <button onclick="submitAISearch()">Search Videos</button>
+
+  <ul id="resultsList" class="commentText"></ul>
       </div>
     </div>
   </div>
@@ -123,5 +128,6 @@
   <script type="module" src="/js/comments.js"></script>
   <script type="module" src="/js/addComment.js"></script>
   <script type="module" src="/js/search.js"></script>
+  <script src="/js/chat.js"></script>
 </body>
 </html>

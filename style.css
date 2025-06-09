@@ -107,6 +107,11 @@ li {
   font-size: 1.1rem;
 }
 
+.commentsText {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+
 #qrLabel {
   color: #1a3d44;
   text-decoration: solid;

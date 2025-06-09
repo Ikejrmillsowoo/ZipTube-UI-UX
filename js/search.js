@@ -1,4 +1,5 @@
 import { showDataDetail } from "./fetch.js";
+import { submitAISearch } from './chat.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const API_URL = `http://localhost:8080`;
@@ -23,7 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (query) {
       // Example: Log the query or send it to an API
       console.log('Searching for:', query);
-
+      if (query.trim().length > 3) {
+        // Optionally don't block the default form behavior (like navigation/filter)
+        submitAISearch(query);
+      }
+      // submitAISearch(query)
       // Example: Fetch results from an API
       fetch(`${API_URL}/video/search?query=${encodeURIComponent(query)}`)
         .then(response => response.json())

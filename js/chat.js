@@ -60,9 +60,9 @@ const API_URL = `http://localhost:8080`;
 
 
 export async function submitAISearch(prompt) {
-  const prompt = document.getElementById("aiPromptInput").value;
+  // const prompt = document.getElementById("aiPromptInput").value;
   const resultsList = document.getElementById("resultsList");
-
+  console.log(prompt)
   resultsList.innerHTML = "<li>Loading educational suggestions...</li>";
 
   try {

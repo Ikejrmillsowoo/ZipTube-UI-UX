@@ -11,6 +11,12 @@
   <button id="sendBtn">Send</button>
   <div id="chatOutput"></div>
 
-  <script src="chatgpt.js" type="module"></script>
+  <input type="text" id="keywordInput" placeholder="Ask for videos..." />
+<button onclick="getVideoSuggestions()">Find Videos</button>
+
+<ul id="videoResults"></ul>
+
+
+  <script src="/js/chat.js" type="module"></script>
 </body>
 </html>

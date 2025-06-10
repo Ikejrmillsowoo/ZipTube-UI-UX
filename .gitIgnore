@@ -1,4 +1,4 @@
 .env
 config.js
 media/
-node_modules
+node_modules.env

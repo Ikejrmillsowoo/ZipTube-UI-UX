@@ -5,7 +5,7 @@ let currentVideoIndex = 0;
 
 
 function fetchVideoData() {
-    fetch(`${API_URL}/video`)
+    fetch(`${API_URL}/videos`)
         .then(res => {
             //console.log("res is ", Object.prototype.toString.call(res));
             return res.json();
